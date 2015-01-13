@@ -1,6 +1,9 @@
 package cn.license;
 
 import android.graphics.Bitmap;
+import cn.license.collsionwith.EnemyCW;
+import cn.license.draw.EnemyDraw;
+import cn.license.logic.DucklLogic;
 
 public class Enemy extends Plane{
 	// ≤‘”¨
@@ -32,5 +35,8 @@ public class Enemy extends Plane{
 			speed = 3;
 			break;
 		}
+		this.setDraw(new EnemyDraw(this));
+		this.setLogic(new DucklLogic(this));
+		this.setCollsionWith(new EnemyCW(this));
 	}
 }

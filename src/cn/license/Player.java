@@ -2,6 +2,7 @@ package cn.license;
 
 import android.graphics.Bitmap;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import cn.license.collsionwith.ICollsionWithPlane;
 import cn.license.collsionwith.PlayerCW;
 import cn.license.collsionwith.PlayerCWPlane;
@@ -12,7 +13,7 @@ public class Player extends Plane{
 	private ICollsionWithPlane playerCWPlane;
 	//主角的血量和血量位图
 	//默认3血
-	public int playerHp = 3;
+	public int playerHp = 30;
 	public Bitmap bmpPlayerHp;
 	//主角的坐标以及位图
 	public int x,y;
@@ -77,6 +78,35 @@ public class Player extends Plane{
 			isRight = false;
 		}
 	}
+	
+	// 菜单触屏事件函数，主要用于处理按钮事件
+		public void onTouchEvent(MotionEvent event) {
+			// 获取用户当前触屏位置
+			int pointX = (int) event.getX();
+			int pointY = (int) event.getY();
+			// 当用户是按下动作或移动动作
+			if (event.getAction() == MotionEvent.ACTION_DOWN
+					|| event.getAction() == MotionEvent.ACTION_MOVE) {
+				// 判定用户是否点击了按钮
+				if (pointX > x) {
+					isRight = true;
+				} else {
+					isLeft = true;
+				}
+				if (pointY > y) {
+					isDown = true;
+				} else {
+					isUp = true;
+				}
+				// 当用户是抬起动作
+			} else if (event.getAction() == MotionEvent.ACTION_UP) {
+				// 抬起判断是否点击按钮，防止用户移动到别处
+				isUp = false;
+				isDown = false;
+				isLeft = false;
+				isRight = false;
+			}
+		}
 	
 	
 	/**

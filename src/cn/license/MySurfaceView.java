@@ -250,6 +250,7 @@ public class MySurfaceView extends SurfaceView implements Callback, Runnable {
 			gameMenu.onTouchEvent(event);
 			break;
 		case GAMEING:
+			player.onTouchEvent(event);
 			break;
 		case GAME_PAUSE:
 			break;
