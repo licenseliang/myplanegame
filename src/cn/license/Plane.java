@@ -1,11 +1,11 @@
-package cn.license.draw;
+package cn.license;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import cn.license.Bullet;
-import cn.license.MySurfaceView;
+import cn.license.collsionwith.EmptyCW;
 import cn.license.collsionwith.ICollsionWith;
+import cn.license.draw.IDraw;
 import cn.license.logic.ILogic;
 
 public class Plane {
@@ -14,7 +14,7 @@ public class Plane {
 	// 逻辑
 	private ILogic logic;
 	//碰撞
-	private ICollsionWith collsionWith;
+	private ICollsionWith collsionWith = new EmptyCW();
 	// 敌机的种类标识
 	public int type;
 	// 苍蝇
@@ -44,6 +44,9 @@ public class Plane {
 	// 计算器
 	public int count;
 
+	public Plane(){
+		
+	}
 	// Boss的构造函数
 	public Plane(Bitmap bmpBoss) {
 		this.bmpEnemy = bmpBoss;

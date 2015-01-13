@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.view.KeyEvent;
 
-public class Player {
+public class Player extends Plane{
 	//主角的血量和血量位图
 	//默认3血
 	private int playerHp = 3;

@@ -1,7 +1,7 @@
 package cn.license.logic;
 
 import cn.license.MySurfaceView;
-import cn.license.draw.Plane;
+import cn.license.Plane;
 
 
 public class DucklLogic implements ILogic{

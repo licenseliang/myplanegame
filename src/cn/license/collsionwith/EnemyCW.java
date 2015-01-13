@@ -1,9 +1,9 @@
 package cn.license.collsionwith;
 
 import cn.license.Bullet;
-import cn.license.draw.Plane;
+import cn.license.Plane;
 
-public class EnemyCW {
+public class EnemyCW implements ICollsionWith{
 	private Plane plane;
 
 	public void setPlane(Plane plane) {

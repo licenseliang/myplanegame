@@ -1,5 +1,6 @@
 package cn.license.draw;
 
+import cn.license.Plane;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 

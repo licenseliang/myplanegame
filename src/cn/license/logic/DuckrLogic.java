@@ -1,6 +1,6 @@
 package cn.license.logic;
 
-import cn.license.draw.Plane;
+import cn.license.Plane;
 
 
 public class DuckrLogic implements ILogic{
