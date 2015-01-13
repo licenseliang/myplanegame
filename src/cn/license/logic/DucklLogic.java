@@ -2,14 +2,13 @@ package cn.license.logic;
 
 import cn.license.MySurfaceView;
 import cn.license.Plane;
+import cn.license.draw.BaseAction;
 
 
-public class DucklLogic implements ILogic{
+public class DucklLogic extends BaseAction implements ILogic{
 
-	private Plane plane;
-
-	public void setPlane(Plane plane) {
-		this.plane = plane;
+	public DucklLogic(Plane plane) {
+		super(plane);
 	}
 
 	// µÐ»úÂß¼­

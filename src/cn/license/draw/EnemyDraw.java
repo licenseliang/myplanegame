@@ -5,10 +5,9 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 
-public class EnemyDraw implements IDraw {
-	private Plane plane;
-	public void setPlane(Plane plane){
-		this.plane = plane;
+public class EnemyDraw extends BaseAction implements IDraw {
+	public EnemyDraw(Plane plane) {
+		super(plane);
 	}
 
 	/**

@@ -2,12 +2,12 @@ package cn.license.collsionwith;
 
 import cn.license.Bullet;
 import cn.license.Plane;
+import cn.license.draw.BaseAction;
 
-public class EmptyCW implements ICollsionWith{
-	private Plane plane;
+public class EmptyCW extends BaseAction implements ICollsionWith{
 
-	public void setPlane(Plane plane) {
-		this.plane = plane;
+	public EmptyCW(Plane plane) {
+		super(plane);
 	}
 
 	// ÅĞ¶ÏÅö×²(µĞ»úÓëÖ÷½Ç×Óµ¯Åö×²)

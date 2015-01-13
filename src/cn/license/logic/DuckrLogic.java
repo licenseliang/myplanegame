@@ -1,14 +1,13 @@
 package cn.license.logic;
 
 import cn.license.Plane;
+import cn.license.draw.BaseAction;
 
 
-public class DuckrLogic implements ILogic{
+public class DuckrLogic extends BaseAction implements ILogic{
 
-	private Plane plane;
-
-	public void setPlane(Plane plane) {
-		this.plane = plane;
+	public DuckrLogic(Plane plane) {
+		super(plane);
 	}
 
 	// µÐ»úÂß¼­

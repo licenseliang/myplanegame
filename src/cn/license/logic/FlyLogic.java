@@ -1,14 +1,13 @@
 package cn.license.logic;
 
 import cn.license.Plane;
+import cn.license.draw.BaseAction;
 
 
-public class FlyLogic implements ILogic{
+public class FlyLogic extends BaseAction implements ILogic{
 
-	private Plane plane;
-
-	public void setPlane(Plane plane) {
-		this.plane = plane;
+	public FlyLogic(Plane plane) {
+		super(plane);
 	}
 
 	// µÐ»úÂß¼­

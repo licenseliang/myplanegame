@@ -5,24 +5,20 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import cn.license.collsionwith.EmptyCW;
 import cn.license.collsionwith.ICollsionWith;
+import cn.license.draw.EmptyDraw;
 import cn.license.draw.IDraw;
+import cn.license.logic.EmptyLogic;
 import cn.license.logic.ILogic;
 
 public class Plane {
 	// 绘制
-	private IDraw draw;
+	private IDraw draw = new EmptyDraw(this);;
 	// 逻辑
-	private ILogic logic;
+	private ILogic logic = new EmptyLogic(this);
 	//碰撞
-	private ICollsionWith collsionWith = new EmptyCW();
+	private ICollsionWith collsionWith = new EmptyCW(this);
 	// 敌机的种类标识
 	public int type;
-	// 苍蝇
-	public static final int TYPE_FLY = 1;
-	// 鸭子(从左往右运动)
-	public static final int TYPE_DUCKL = 2;
-	// 鸭子(从右往左运动)
-	public static final int TYPE_DUCKR = 3;
 	// 敌机图片资源
 	public Bitmap bmpEnemy;
 	// 敌机坐标
@@ -43,42 +39,19 @@ public class Plane {
 	public int crazyTime = 200;
 	// 计算器
 	public int count;
+	
+	// 血量
+	public int hp;
 
 	public Plane(){
 		
 	}
-	// Boss的构造函数
-	public Plane(Bitmap bmpBoss) {
-		this.bmpEnemy = bmpBoss;
-		frameW = bmpBoss.getWidth() / 10;
-		frameH = bmpBoss.getHeight();
-		// Boss的x坐标居中
-		x = MySurfaceView.screenW / 2 - frameW / 2;
-		y = 0;
-	}
-
-	// 敌机的构造函数
-	public Plane(Bitmap bmpEnemy, int enemyType, int x, int y) {
-		this.bmpEnemy = bmpEnemy;
-		frameW = bmpEnemy.getWidth() / 10;
-		frameH = bmpEnemy.getHeight();
-		this.type = enemyType;
-		this.x = x;
-		this.y = y;
-		// 不同种类的敌机血量不同
-		switch (type) {
-		// 苍蝇
-		case TYPE_FLY:
-			speed = 25;
-			break;
-		// 鸭子
-		case TYPE_DUCKL:
-			speed = 3;
-			break;
-		case TYPE_DUCKR:
-			speed = 3;
-			break;
-		}
+	
+	/**
+	 * 设置Boss血量
+	 */
+	public void setHp(int hp) {
+		this.hp = hp;
 	}
 
 	public void draw(Canvas canvas, Paint paint) {
@@ -94,4 +67,24 @@ public class Plane {
 	public boolean isCollsionWith(Bullet bullet) {
 		return collsionWith.isCollsionWith(bullet);
 	}
+
+
+
+	public void setDraw(IDraw draw) {
+		this.draw = draw;
+	}
+
+
+
+	public void setLogic(ILogic logic) {
+		this.logic = logic;
+	}
+
+
+
+	public void setCollsionWith(ICollsionWith collsionWith) {
+		this.collsionWith = collsionWith;
+	}
+	
+	
 }

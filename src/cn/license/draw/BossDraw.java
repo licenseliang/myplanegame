@@ -1,14 +1,12 @@
 package cn.license.draw;
 
-import cn.license.Plane;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import cn.license.Plane;
 
-public class BossDraw implements IDraw {
-	private Plane plane;
-
-	public void setPlane(Plane plane) {
-		this.plane = plane;
+public class BossDraw extends BaseAction implements IDraw {
+	public BossDraw(Plane plane) {
+		super(plane);
 	}
 
 	@Override
